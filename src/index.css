@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #050814;
+    --bg-secondary: #0a0f24;
+    --bg-card: rgba(15, 23, 56, 0.7);
+    --gold-primary: #dfba73;
+    --gold-deep: #c5a059;
+    --gold-glow: rgba(223, 186, 115, 0.25);
+    --sandalwood: #f8f6f0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #050814;
+    color: #f8f6f0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #0d1533 0%, #050814 60%, #02040a 100%);
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050814;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a3458;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c5a059;
+  }
+}
+
+/* Custom fonts */
+.font-serif-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-display-dm {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.font-sanskrit {
+  font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom visual effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff7d6 0%, #dfba73 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.purple-gradient-text {
+  background: linear-gradient(135deg, #f3e8ff 0%, #c084fc 50%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(223, 186, 115, 0.3);
+  box-shadow: 0 0 25px -5px rgba(223, 186, 115, 0.15), inset 0 0 15px -5px rgba(223, 186, 115, 0.1);
+}
+
+.temple-card-blur {
+  background: rgba(10, 16, 40, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(223, 186, 115, 0.2);
+}
+
+@keyframes diya-flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+  }
+  25% {
+    transform: scale(1.04, 0.98) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.9));
+  }
+  50% {
+    transform: scale(0.97, 1.02) rotate(-0.5deg);
+    opacity: 0.88;
+    filter: drop-shadow(0 0 7px rgba(245, 158, 11, 0.7));
+  }
+  75% {
+    transform: scale(1.02, 1.01) rotate(0.8deg);
+    opacity: 0.96;
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.85));
+  }
+}
+
+.animate-diya {
+  animation: diya-flicker 3.5s ease-in-out infinite;
+}
+
+@keyframes breathing-halo {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.35;
+  }
+}
+
+.animate-halo {
+  animation: breathing-halo 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
