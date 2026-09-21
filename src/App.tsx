@@ -13,10 +13,12 @@ import { PromiseSection } from './components/promise/PromiseSection';
 import { InvitationCard } from './components/invitation/InvitationCard';
 import { BlessingSection } from './components/blessings/BlessingSection';
 import { SecretLetterModal } from './components/secret/SecretLetterModal';
+import { SecretLockModal } from './components/secret/SecretLockModal';
 import { Footer } from './components/footer/Footer';
 
 function App() {
   const [hasEntered, setHasEntered] = useState(false);
+  const [isLockModalOpen, setIsLockModalOpen] = useState(false);
   const [isSecretOpen, setIsSecretOpen] = useState(false);
   const [isPrivateFromBhavani, setIsPrivateFromBhavani] = useState(false);
 
@@ -82,7 +84,7 @@ function App() {
         <JourneyMap />
         <DailyLifeSection />
         <DevotionsSection />
-        <CodeLoveSection onOpenSecret={() => setIsSecretOpen(true)} />
+        <CodeLoveSection onOpenSecret={() => setIsLockModalOpen(true)} />
         <BTSQuoteSection />
         <PromiseSection />
         <InvitationCard />
@@ -90,7 +92,17 @@ function App() {
       </main>
 
       {/* Footer & Secret Reveal Button */}
-      <Footer onOpenSecret={() => setIsSecretOpen(true)} />
+      <Footer onOpenSecret={() => setIsLockModalOpen(true)} />
+
+      {/* Password Lock Modal (Requires first restaurant name: "ahoo") */}
+      <SecretLockModal
+        isOpen={isLockModalOpen}
+        onClose={() => setIsLockModalOpen(false)}
+        onUnlockSuccess={() => {
+          setIsLockModalOpen(false);
+          setIsSecretOpen(true);
+        }}
+      />
 
       {/* Personal Surprise Letter Modal */}
       <SecretLetterModal

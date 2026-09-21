@@ -18,11 +18,11 @@ export const CodeLoveSection: React.FC<CodeLoveSectionProps> = ({ onOpenSecret }
 
   const handleRunTerminal = () => {
     setTerminalRunning(true);
-    setTerminalOutput("Compiling love story...\nResolving dependencies: Sangareddy + Solapur -> Hyderabad...\nBranch merged successfully.\nOpening secret letter...");
+    setTerminalOutput("Compiling love story...\nResolving dependencies: Sangareddy + Solapur -> Hyderabad...\nBranch merged successfully.\nSecurity checkpoint: Awaiting Ruchita's password...");
     setTimeout(() => {
       setTerminalRunning(false);
       onOpenSecret();
-    }, 1200);
+    }, 1000);
   };
 
   return (
