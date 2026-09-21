@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AmbientCanvas } from './components/common/AmbientCanvas';
+import { PencilSketchBackground } from './components/common/PencilSketchBackground';
 import { SoundControl } from './components/common/SoundControl';
 import { NavigationBar } from './components/common/NavigationBar';
 import { IntroTransition } from './components/intro/IntroTransition';
@@ -61,6 +62,9 @@ function App() {
 
   return (
     <div className="relative min-h-screen text-[#f8f6f0] bg-[#050814] selection:bg-[#dfba73]/30 selection:text-white font-sans">
+      {/* Scroll-Driven Pencil Sketch Background Canvas & Follower Pencil */}
+      <PencilSketchBackground />
+
       {/* Subtle Ambient Particle Layer */}
       <AmbientCanvas />
 
